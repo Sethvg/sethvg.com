@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Seth Van Grinsven</title>
+
+    <script src="libs/jquery-1.11.3.min.js"></script>
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/js/bootstrap.min.js"></script>
+    <script src="libs/ui-bootstrap-tpls-0.13.4.min.js"></script>
+    <script src="app.js"></script>
+
+    <link href="libs/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="main" style="background-color:#EDFFEB">
+
+    <div class="container-fluid" >
+        <div class="row" style="border-bottom:2px solid green; background-color:lightgreen; position:fixed; z-index:5;width:100%" >
+            <div class="col-xs-8 col-xs-offset-2" style="text-align:center; font-size:36px">
+                Seth Van Grinsven
+            </div>
+            <div class="col-xs-2">
+
+
+                <div  tooltip-placement="left" tooltip="{{tt}}"  ><span ng-mouseover="tt='Github'"  style="padding:10px"><a  href="http://www.github.com/sethvg"><span style="cursor:pointer"><img
+                        src="assets/github-circled.svg" alt="github"
+                        style="height:30px; margin-top:10px; displayu:inline-flex; vertical-align: top"></span></a></span>
+                <span ng-mouseover="tt='Resume'" ><a style="color:black; text-decoration:none" href="assets/resume.pdf"><span
+                                                                                            class="glyphicon glyphicon-save-file"
+                                                                                            style="font-size:28px; margin-top:11px; margin-left:-8px; display:inline-flex; vertical-align: top; cursor:pointer"></span>
+                </a></span>
+                <span ng-mouseover="tt='LinkedIn'"  tooltip="LinkedIn" ><a href="http://www.linkedin.com/in/sethvg"> <span style="cursor:pointer"><img
+                        src="assets/linkedIn.png" alt="linkedIn Logo"
+                        style="height:40px; margin-top:5px;margin-left:-5px; displayu:inline-flex; vertical-align: top"></span></a></span>
+                <span  ng-mouseover="tt='Contact'"  class="glyphicon glyphicon-phone" ng-click="open()"
+                      style="font-size:28px; margin-top:11px; margin-left:-3px; display:inline-flex; vertical-align: top; cursor:pointer"></span></div>
+
+
+            </div>
+
+        </div><br/>
+        <div class="row" style="padding-top:50px">
+            <div class="col-xs-2" style="border-right:1px solid green;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <img src="assets/profile.jpg" style="width:100%; margin-bottom:30px;">
+                    </div>
+                    <div class="row" ng-repeat="nav in navMenu">
+                        <button class="btn btn-block btn-sm btn-default" style="padding-top:10px; padding-bottom:10px; margin:2px;" ng-class="{'btn-success':nav.selected}" ng-click="setSelected($index)">{{nav.text}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-10" >
+
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div ng-include="'views/' + selected.partial"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

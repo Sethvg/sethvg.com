@@ -1,0 +1,90 @@
+<div class="container-fluid"><div class="row">
+<div class="col-xs-6">
+
+<pre>
+<code>
+
+&lt;div ng-sparkline ng-city="San Francisco" width='400'>
+&lt;h3>A custom view of the weather in San Francisco&lt;/h3>
+&lt;/div>
+
+---------------------------------------------------
+
+app.directive('ngSparkline', function() {
+  var url = "http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=imperial&cnt=14&callback=JSON_CALLBACK&q=";
+  return {
+    restrict: 'A',
+    require: '^ngCity',
+    scope: {
+      ngCity: '@'
+    },
+    template: '<div class="sparkline"><h4>Weather for {{ngCity}}</h4><div class="graph"></div></div>',
+    controller: ['$scope', '$http', function($scope, $http) {
+      $scope.getTemp = function(city) {
+        $http({
+          method: 'JSONP',
+          url: url + city
+        }).success(function(data) {
+          var weather = [];
+          angular.forEach(data.list, function(value){
+            weather.push(value);
+          });
+          $scope.weather = weather;
+        });
+      }
+    }],
+    link: function(scope, iElement, iAttrs, ctrl) {
+      scope.getTemp(iAttrs.ngCity);
+      scope.$watch('weather', function(newVal) {
+        // the `$watch` function will fire even if the
+        // weather property is undefined, so we'll
+        // check for it
+        if (newVal) {
+          var highs = [],
+		var width   = iAttrs.width || 200,
+   		    height  = iAttrs.height || 80;
+
+
+          angular.forEach(scope.weather, function(value){
+            highs.push(value.temp.max);
+          });
+          // chart
+        }
+      });
+    }
+  }
+});
+</code>
+</pre>
+</div>
+<div class="col-xs-6">
+<pre>
+The restrict option is typically set to:
+
+'A' - only matches attribute name
+'E' - only matches element name
+'C' - only matches class name
+These restrictions can all be combined as needed:
+
+'AEC' - matches either attribute or element or class name
+
+--------------------------------------------------------------------------
+
+^ -- Look for the controller on parent elements, not just on the local scope
+? -- Don't raise an error if the controller isn't found
+
+--------------------------------------------------------------------------
+
+scope:true or false (false by default) normal heirachy
+
+Isolated Scope: Inject Values into it.
+
+scope: {
+  ngModel: '=',     // Bind the ngModel to the object given
+  onSend: '&',      // Pass a reference to the method 
+  fromName: '@'     // Store the string associated by fromName
+}
+</pre>
+</div>
+
+</div></div>

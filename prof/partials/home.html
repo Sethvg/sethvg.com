@@ -1,0 +1,16 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-4">
+			<ul class="nav nav-pills nav-stacked">
+			  	<li role="presentation" ng-repeat="doc in docs" ng-class="{'active':isActiveDoc($index)}"><a ng-click="setActiveDoc($index)" style="cursor:pointer;">{{doc.name}}</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-8">
+		<pre style="border:1px solid black; padding:5px;">
+		<code>{{activeFile}}</code>
+
+		</pre>
+		</div>
+	</div>
+</div>
+

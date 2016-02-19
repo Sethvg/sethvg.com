@@ -1,0 +1,34 @@
+<html ng-app="app" ng-controller="main">
+<head>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="angular.js"></script>
+
+
+
+    <script src="main.js"></script>
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+</head>
+<body ng-init="init()" ng-keydown="move($event)">
+
+    <canvas id="mycanvas" width="800" height="800" style="border:1px solid black; user-select: none; margin:10px" ng-click="click($event)" style=""></canvas>
+    <div class="container-fluid" style="margin-left:10px">
+        <div class="row">
+            Windmill: {{windmill}}
+        </div>
+        <div class="row">
+            Eye: {{eye}}
+        </div>
+        <div class="row">
+            Look Angle: {{lookAngle}}
+        </div>
+        <div class="row">
+            Looking At: {{lookAt}}
+        </div>
+
+
+    </div>
+    </body>
+</html>

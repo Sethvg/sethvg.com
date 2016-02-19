@@ -1,0 +1,10 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <accordion close-others="true" >
+            <accordion-group ng-repeat="p in proj" heading="{{p.title}}" template-url="projectPartials/heading.html" is-open="p.isFirstOpen" >
+                <div ng-include="p.path"></div>
+            </accordion-group>
+        </accordion>
+    </div>
+</div>

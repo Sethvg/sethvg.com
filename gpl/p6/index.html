@@ -1,0 +1,38 @@
+<html ng-app="app" ng-controller="main">
+<head>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="angular.js"></script>
+    <script src="math.min.js"></script>
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+
+    <script src="JS/Utils.js"></script>
+    <script src="JS/Vector.js"></script>
+    <script src="JS/shaders.js"> </script>
+    <script src="JS/Texture.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/drawable.js"></script>
+
+</head>
+<body ng-init="init()"  ng-keyup="keyDown($event)" ng-keydown="keyUp($event)">
+
+    <canvas id="mycanvas" width="1600" height="800" style="border:1px solid black; user-select: none; margin:10px" ng-click="click($event)" style=""></canvas>
+    <div class="container-fluid" style="margin-left:10px">
+        <div class="row">
+            Position: {{eye}}
+        </div>
+        <div class="row">
+            Ambient: <input class="form-control" ng-model="ambientValue"/>
+        </div>
+        <div class="row">
+            Directional Light: {{directionOn}} <button class='btn btn-primary btn-block' ng-click="toggle('directionOn')">Toggle</button>
+        </div>
+        <div class="row">
+            Point Light: {{lightOn}} <button class='btn btn-primary btn-block' ng-click="toggle('lightOn')">Toggle</button>
+        </div>
+    </div>
+    </body>
+</html>

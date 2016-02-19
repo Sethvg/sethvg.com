@@ -1,0 +1,36 @@
+<html ng-app="app" ng-controller="main">
+<head>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="angular.js"></script>
+
+
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+    <script src="main.js"></script>
+
+</head>
+<body ng-init="init()" ng-keydown="keyP($event)">
+
+    <canvas id="mycanvas" width="800" height="800" style="border:1px solid black; user-select: none; margin:10px" ng-click="click($event)" style=""></canvas>
+    <div class="container-fluid" style="margin-left:10px">
+        <div class="row">
+            {{msg}}
+        </div>
+        <div class="row">
+            Shots: {{shots}}
+        </div>
+        <div class="row">
+            Score: {{score}}
+        </div>
+        <div class="row">
+            Level: {{level}}
+        </div>
+        <div class="row">
+            Enemies Remaining: {{getELength()}}
+        </div>
+    </div>
+    </body>
+</html>

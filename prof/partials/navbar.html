@@ -1,0 +1,14 @@
+<div class="container-fluid">
+	<div class="row" style="border-bottom:1px solid black; padding-bottom:10px; padding-top:10px;">
+		<div class="col-xs-4">
+			<h3 style="padding-top:10px; margin:0px;">Angular Tutorial</h3>
+		</div>
+		<div class="col-xs-7">
+			<ul class="nav nav-pills pull-right">
+			  <li role="presentation" ng-repeat="option in options" ng-class="{'active':isActive($index)}"><a ng-click="setActive($index)" ng-href="{{option.href}}">{{option.val}}</a></li>
+			</ul>
+		
+		</div>
+	</div>
+	
+</div>
