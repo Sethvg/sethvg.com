@@ -5,11 +5,11 @@ app.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         when('/', {
-            templateUrl: 'home/_home.html',
+            templateUrl: 'scripts/angular/home/_home.html',
             controller: 'homeCtrl'
         }).
         otherwise({
-            redirectTo: '/phones'
+            redirectTo: '/'
         });
     }]);
 
