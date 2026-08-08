@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Games — Seth Van Grinsven</title>
+<meta name="description" content="Mobile games developed by Seth Van Grinsven: Grimoire, Comet Caddy, Alley Loop, Future Conflicts and Stroads.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">SethVg<span class="dot">.</span>com</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="games.html" aria-current="page">Games</a>
+      <a href="https://github.com/Sethvg">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" style="padding-bottom:32px">
+    <div class="wrap">
+      <div class="eyebrow">Side project</div>
+      <h1>Games</h1>
+      <p class="lede">
+        Game development is my hobby — evenings and weekends, not my job. My day job is
+        senior fullstack engineering at Google; see the <a href="resume.html">resume</a>
+        for that. What the two have in common is how they get built: a pure, deterministic
+        rules core with no platform dependencies, a thin rendering layer over it, and a
+        headless test suite that plays the game so I don't have to verify it by hand.
+        Five titles in development across two stacks. Every screenshot is a real frame
+        from the running build.
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap">
+
+    <!-- ============ GRIMOIRE ============ -->
+    <article class="entry">
+      <div class="entry-head">
+        <span class="kicker">01</span>
+        <h2>Grimoire</h2>
+      </div>
+      <div class="tagline">Clear the spellbook before the candle dies.</div>
+
+      <div class="entry-cols">
+        <div>
+          <p>
+            A fast fantasy solitaire built on the TriPeaks/Golf pattern and wrapped in an
+            arcade run. A candle burns down continuously from the moment the board deals.
+            Chains build a multiplier, and clearing a spread buys back enough wax to keep
+            going — so the game is a race you extend by playing well rather than a timer you
+            simply lose to.
+          </p>
+          <ul>
+            <li><strong>One verb.</strong> Tap a card. Play an exposed card one rank above or
+              below the page card and the chain advances; draw from the stock and the chain
+              resets and costs you wax. Ace wraps both ways (K→A→2).</li>
+            <li><strong>Chains are the game.</strong> Every link is worth more points and a
+              little more wax. At chain 5 you earn an <em>Arcana</em> — a wildcard that plays
+              on anything, and the only way to rescue a chain about to die.</li>
+            <li><strong>The tutorial is the real run.</strong> Four prompts coach you over the
+              actual first game rather than a scripted fake board, so there is no second set
+              of rules to keep in sync and the first board you clear is one you really
+              cleared. The candle is held for the first two steps — a player who hasn't made
+              a move yet can't be put on a clock — and live for the last two, because the
+              cost of a draw <em>is</em> the lesson.</li>
+            <li><strong>No unwinnable deals.</strong> Every board opens on a page card that some
+              exposed card already answers; a timed run can't afford an opening whose only
+              move is a draw. The test suite walks 25 consecutive boards across 20 seeds and
+              asserts a legal play exists on every one.</li>
+          </ul>
+
+          <div class="meta-box">
+            <dl>
+              <dt>Stack</dt>
+              <dd>TypeScript, HTML5 Canvas, Capacitor (Android + iOS)</dd>
+              <dt>Role</dt>
+              <dd>Sole developer — design, engine, art direction, release</dd>
+              <dt>Status</dt>
+              <dd>Playable build; store assets and icons prepared</dd>
+              <dt>Source</dt>
+              <dd><a href="https://github.com/Sethvg/grimiore">github.com/Sethvg/grimiore</a></dd>
+              <dt>Privacy</dt>
+              <dd><a href="privacy/grimoire.html">Privacy policy</a></dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <img src="img/games/grimoire-title.png" alt="Grimoire title screen">
+          </figure>
+          <figure>
+            <img src="img/games/grimoire-chain.png" alt="Grimoire mid-chain, multiplier climbing">
+          </figure>
+          <figure>
+            <img src="img/games/grimoire-arcana.png" alt="Grimoire Arcana wildcard in the slot">
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ COMET CADDY ============ -->
+    <article class="entry">
+      <div class="entry-head">
+        <span class="kicker">02</span>
+        <h2>Comet Caddy</h2>
+      </div>
+      <div class="tagline">Sink the comet, mind the gravity.</div>
+
+      <div class="entry-cols">
+        <div>
+          <p>
+            Pull back, let fly, and curve your shot around planets into the goal ring. The
+            whole game lives in one moment that lands inside your first three shots: you aim
+            <em>wide on purpose</em>, gravity catches the comet, and the curve carries it in.
+            Everything the campaign adds afterwards — repulsors, moving gates, wormholes,
+            bumpers — is a new answer to that same question.
+          </p>
+          <ul>
+            <li><strong>Honest physics you can read.</strong> A planet's mass is radius² × skin
+              density, so both size and surface tell you how hard it pulls: gas 1.7, molten
+              1.2, rock 1.0, ice 0.55. The drawn field ring tracks mass rather than size, so
+              a gas giant visibly hauls about three times as hard as an ice body the same
+              width.</li>
+            <li><strong>A toolkit of hazards.</strong> Voids repel, black holes pull hard and
+              swallow, asteroids exist purely to be dodged, and bumpers are perfectly
+              elastic — the one surface you're allowed to aim at. Moving bodies are a pure
+              function of a level clock that keeps running while you aim, so <em>when</em> you
+              release is part of the shot.</li>
+            <li><strong>200 holes across ten worlds.</strong> Thirty-five are hand-authored; the
+              rest are generated, then flown and difficulty-rated by the game's own solver.
+              A level only ships once the simulation has actually completed it and measured
+              the aim window that sets its par.</li>
+            <li><strong>Boost that can't replace aim.</strong> One charge per shot adds a fixed
+              70 u/s along the current heading — enough to stretch a shot falling just short,
+              never enough to substitute for aiming.</li>
+          </ul>
+
+          <div class="meta-box">
+            <dl>
+              <dt>Stack</dt>
+              <dd>TypeScript, HTML5 Canvas, Capacitor (Android + iOS)</dd>
+              <dt>Role</dt>
+              <dd>Sole developer — physics, level generation, solver, art direction</dd>
+              <dt>Status</dt>
+              <dd>Playable build; full 200-level campaign generated and rated</dd>
+              <dt>Notable</dt>
+              <dd>Automated level pipeline: generate → prove solvable → derive par → assign difficulty tier</dd>
+              <dt>Privacy</dt>
+              <dd><a href="privacy/comet-caddy.html">Privacy policy</a></dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <img src="img/games/cometcaddy-title.png" alt="Comet Caddy title screen">
+          </figure>
+          <figure>
+            <img src="img/games/cometcaddy-aiming.png" alt="Comet Caddy aiming — the pull-back wedge and trajectory preview">
+          </figure>
+          <figure>
+            <img src="img/games/cometcaddy-landed.png" alt="Comet Caddy — the comet drops into the goal ring">
+          </figure>
+          <figure>
+            <img src="img/games/cometcaddy-level.png" alt="Comet Caddy level with planets and goal ring">
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ ALLEY LOOP ============ -->
+    <article class="entry">
+      <div class="entry-head">
+        <span class="kicker">03</span>
+        <h2>Alley Loop</h2>
+      </div>
+      <div class="tagline">A stray cat, a nightly patrol, and nine lives to spend.</div>
+
+      <div class="entry-cols">
+        <div>
+          <p>
+            A cat-themed Loop&nbsp;Hero-like for Android and iOS. The cat walks and fights on
+            its own; your decisions are all about the world it walks through. You place
+            world-building cards that raise reward and risk together, watch the lives drain,
+            and choose the moment to retreat to camp and bank the haul — because a run that
+            ends at zero lives banks nothing. Between runs you rebuild the Colony to unlock
+            new cards and classes.
+          </p>
+          <ul>
+            <li><strong>Fully deterministic simulation.</strong> The core advances in fixed 100 ms
+              steps and every mutation goes through a single funnel. A run is defined by its
+              seed plus a timestamped action trace, which means the same inputs always
+              reproduce the same result — replays and mid-run saves are the same mechanism.</li>
+            <li><strong>Portable by construction.</strong> The rules module has zero Android,
+              Compose or platform imports, so identical game code runs on Android, iOS and a
+              JVM test harness. Rendering is a single Compose Canvas screen.</li>
+            <li><strong>Generated loops that are always valid.</strong> Each night's track is a
+              single closed ring of 42–60 tiles with the camp on it, verified so that every
+              ring tile has exactly two ring neighbours — no dead ends, no forks.</li>
+            <li><strong>All tuning in one place.</strong> Every balance constant lives in a single
+              file with no magic numbers in the systems, so difficulty can be swept and
+              re-tuned by a headless bot rather than by replaying the game by hand.</li>
+          </ul>
+
+          <div class="meta-box">
+            <dl>
+              <dt>Stack</dt>
+              <dd>Kotlin Multiplatform, Compose Multiplatform, Gradle, AdMob</dd>
+              <dt>Role</dt>
+              <dd>Sole developer — design, simulation, rendering, art pipeline</dd>
+              <dt>Status</dt>
+              <dd>Android build running on device; iOS shell in place, shared core complete</dd>
+              <dt>Art</dt>
+              <dd>Custom pixel-art pipeline — generated, staged and wired through a sprite registry</dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <figure class="wide">
+            <img src="img/games/alleyloop-title.png" alt="Alley Loop key art — a stray cat in a moonlit alley">
+          </figure>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ ALSO ============ -->
+    <article class="entry">
+      <div class="entry-head">
+        <span class="kicker">Also</span>
+        <h2>In development</h2>
+      </div>
+
+      <div class="game-grid" style="margin-top:24px">
+
+        <div class="game-card">
+          <div class="body">
+            <h3>Future Conflicts</h3>
+            <div class="tag">Turn-based tactics</div>
+            <p>Grid battles in the spirit of Advance&nbsp;Wars — movement ranges, unit
+               counters, and artillery that can't move and fire in the same turn. The rules
+               are pure Kotlin with no Compose or platform imports, so they're portable and
+               unit-testable; rendering and touch live in a single Canvas screen.</p>
+            <div class="chips">
+              <span class="chip">Kotlin Multiplatform</span>
+              <span class="chip">Compose</span>
+              <span class="chip"><a href="https://github.com/Sethvg/future-conflicts">Source</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div class="body">
+            <h3>Stroads</h3>
+            <div class="tag">Traffic / routing puzzle</div>
+            <p>A Mini&nbsp;Motorways-style network builder: you draw roads and cars route
+               themselves from houses to destinations along the shortest connected path,
+               using an A* pathfinder over the live road graph. Same architecture — pure
+               simulation module, Compose rendering on top.</p>
+            <div class="chips">
+              <span class="chip">Kotlin Multiplatform</span>
+              <span class="chip">A* pathfinding</span>
+              <span class="chip"><a href="https://github.com/Sethvg/stroads">Source</a></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Seth Van Grinsven</div>
+    <div><a href="privacy/">Game privacy policies</a> · <a href="https://github.com/Sethvg">github.com/Sethvg</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

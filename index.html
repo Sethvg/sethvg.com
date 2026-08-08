@@ -1,67 +1,201 @@
-<!DOCTYPE html>
-<html ng-app="app">
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Seth Van Grinsven</title>
-
-    <script src="libs/jquery-1.11.3.min.js"></script>
-    <script src="libs/angular.min.js"></script>
-    <script src="libs/js/bootstrap.min.js"></script>
-    <script src="libs/ui-bootstrap-tpls-0.13.4.min.js"></script>
-    <script src="app.js"></script>
-
-    <link href="libs/css/bootstrap.min.css" rel="stylesheet">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seth Van Grinsven — Senior Software Engineer</title>
+<meta name="description" content="Seth Van Grinsven — Senior Software Engineer at Google on Display &amp; Video 360. Fullstack: Dart, Angular, Java, TypeScript, gRPC, Cloud Spanner. Mobile games on the side.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-controller="main" style="background-color:#EDFFEB">
+<body>
 
-    <div class="container-fluid" >
-        <div class="row" style="border-bottom:2px solid green; background-color:lightgreen; position:fixed; z-index:5;width:100%" >
-            <div class="col-xs-8 col-xs-offset-2" style="text-align:center; font-size:36px">
-                Seth Van Grinsven
-            </div>
-            <div class="col-xs-2">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">SethVg<span class="dot">.</span>com</a>
+    <nav class="nav">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="games.html">Games</a>
+      <a href="https://github.com/Sethvg">GitHub</a>
+    </nav>
+  </div>
+</header>
 
+<main>
 
-                <div  tooltip-placement="left" tooltip="{{tt}}"  ><span ng-mouseover="tt='Github'"  style="padding:10px"><a  href="http://www.github.com/sethvg"><span style="cursor:pointer"><img
-                        src="assets/github-circled.svg" alt="github"
-                        style="height:30px; margin-top:10px; displayu:inline-flex; vertical-align: top"></span></a></span>
-                <span ng-mouseover="tt='Resume'" ><a style="color:black; text-decoration:none" href="assets/resume.pdf"><span
-                                                                                            class="glyphicon glyphicon-save-file"
-                                                                                            style="font-size:28px; margin-top:11px; margin-left:-8px; display:inline-flex; vertical-align: top; cursor:pointer"></span>
-                </a></span>
-                <span ng-mouseover="tt='LinkedIn'"  tooltip="LinkedIn" ><a href="http://www.linkedin.com/in/sethvg"> <span style="cursor:pointer"><img
-                        src="assets/linkedIn.png" alt="linkedIn Logo"
-                        style="height:40px; margin-top:5px;margin-left:-5px; displayu:inline-flex; vertical-align: top"></span></a></span>
-                <span  ng-mouseover="tt='Contact'"  class="glyphicon glyphicon-phone" ng-click="open()"
-                      style="font-size:28px; margin-top:11px; margin-left:-3px; display:inline-flex; vertical-align: top; cursor:pointer"></span></div>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Seattle, Washington</div>
+      <h1>Seth Van&nbsp;Grinsven</h1>
+      <div class="role">Senior Software Engineer · Fullstack</div>
+      <p class="lede">
+        I build enterprise web applications and the distributed systems underneath them.
+        For the past six years that's been Google's Display &amp; Video 360 ad platform —
+        high-throughput marketplace tooling, globally distributed storage, AI-assisted
+        search, and autonomous agent infrastructure for developer workflows. Before that,
+        Indeed and Microsoft.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="resume.html">Resume</a>
+        <a class="btn" href="games.html">Games (side project)</a>
+        <a class="btn" href="https://github.com/Sethvg">GitHub</a>
+      </div>
 
-
-            </div>
-
-        </div><br/>
-        <div class="row" style="padding-top:50px">
-            <div class="col-xs-2" style="border-right:1px solid green;">
-                <div class="container-fluid">
-                    <div class="row">
-                        <img src="assets/profile.jpg" style="width:100%; margin-bottom:30px;">
-                    </div>
-                    <div class="row" ng-repeat="nav in navMenu">
-                        <button class="btn btn-block btn-sm btn-default" style="padding-top:10px; padding-bottom:10px; margin:2px;" ng-class="{'btn-success':nav.selected}" ng-click="setSelected($index)">{{nav.text}}</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-10" >
-
-
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div ng-include="'views/' + selected.partial"></div>
-                    </div>
-                </div>
-
-            </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="n">11</div>
+          <div class="l">Years engineering</div>
         </div>
+        <div class="stat">
+          <div class="n">1,770+</div>
+          <div class="l">Production changelists</div>
+        </div>
+        <div class="stat">
+          <div class="n text">Google&nbsp;·&nbsp;DV360</div>
+          <div class="l">Current team</div>
+        </div>
+        <div class="stat">
+          <div class="n text">Indeed&nbsp;·&nbsp;Microsoft</div>
+          <div class="l">Previously</div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Day job</div>
+        <h2>What I work on</h2>
+        <p>Senior fullstack engineer on Display &amp; Video 360, leading projects from design
+           through launch across the front end, the services behind it, and the storage
+           behind those.</p>
+      </div>
+
+      <div class="entry-cols">
+        <div>
+          <ul>
+            <li><strong>High-concurrency marketplace tooling.</strong> A bulk execution engine that
+              attaches hundreds of curated inventory deals across dozens of campaign line items
+              in parallel, with transactional validation and full telemetry.</li>
+            <li><strong>Distributed storage migrations.</strong> Moving core backend storage onto
+              globally distributed databases (Cloud Spanner, F1) — schema and index
+              restructuring, DAO optimization, no user-visible disruption.</li>
+            <li><strong>AI-assisted product surfaces.</strong> Generative-AI search that turns a
+              free-form natural language query into structured inventory targeting criteria.</li>
+            <li><strong>Agent infrastructure for developers.</strong> Autonomous subagents that run
+              pre-flight validation, static analysis, code review and remote CI presubmit
+              checks — plus MCP servers, custom functions and AI contexts the rest of the team
+              builds on. I've given org tech talks on context engineering in Gemini CLI.</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn" href="resume.html">Full history →</a>
+          </div>
+        </div>
+        <div>
+          <div class="meta-box">
+            <dl>
+              <dt>Languages</dt>
+              <dd>Dart, Java, TypeScript, JavaScript, Kotlin, Python, C#, C++, SQL</dd>
+              <dt>Frontend</dt>
+              <dd>Angular / AngularDart, React, Web Components, Material Design</dd>
+              <dt>Backend</dt>
+              <dd>gRPC, Protocol Buffers, microservices, Cloud Spanner, multi-tenant RBAC</dd>
+              <dt>AI</dt>
+              <dd>Gemini CLI, MCP, context engineering, multi-agent orchestration</dd>
+              <dt>Ops</dt>
+              <dd>Bazel/Blaze, GCP, AWS, Azure, Terraform, Docker</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Side project</div>
+        <h2>Games</h2>
+        <p>Evenings and weekends: five mobile titles in development, the first heading to Google
+           Play. Same engineering habits as the day job — a pure deterministic core, a thin
+           render layer, and a headless suite that plays the game so I don't verify it by
+           hand. Every screenshot is a real frame from a running build.</p>
+      </div>
+
+      <div class="game-grid">
+
+        <article class="game-card">
+          <div class="shot">
+            <img src="img/games/grimoire-title.png" alt="Grimoire title screen — a candlelit spellbook over a layered card spread">
+          </div>
+          <div class="body">
+            <h3>Grimoire</h3>
+            <div class="tag">Arcade solitaire</div>
+            <p>Clear the spellbook before the candle dies. A TriPeaks/Golf spread wrapped in
+               an arcade run: the candle burns continuously, chains build a multiplier, and
+               clearing a board buys back the wax to keep going.</p>
+            <div class="chips">
+              <span class="chip">TypeScript</span>
+              <span class="chip">Canvas</span>
+              <span class="chip">Capacitor</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div class="shot">
+            <img src="img/games/cometcaddy-title.png" alt="Comet Caddy title screen — a comet and goal ring over a nebula starfield">
+          </div>
+          <div class="body">
+            <h3>Comet Caddy</h3>
+            <div class="tag">Physics golf</div>
+            <p>Sink the comet, mind the gravity. Pull back, let fly, and curve your shot
+               around planets into the goal ring — 200 holes across ten worlds, most of them
+               generated, flown and difficulty-rated by the game's own solver.</p>
+            <div class="chips">
+              <span class="chip">TypeScript</span>
+              <span class="chip">Canvas</span>
+              <span class="chip">Capacitor</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div class="shot">
+            <img src="img/games/alleyloop-title.png" alt="Alley Loop key art — a stray cat in a moonlit alley">
+          </div>
+          <div class="body">
+            <h3>Alley Loop</h3>
+            <div class="tag">Roguelite deckbuilder</div>
+            <p>A cat-themed Loop&nbsp;Hero-like. The stray walks and fights on its own; you
+               place world-building cards that raise both reward and risk, manage nine lives,
+               and decide when to bank your haul at camp.</p>
+            <div class="chips">
+              <span class="chip">Kotlin Multiplatform</span>
+              <span class="chip">Compose</span>
+              <span class="chip">Android + iOS</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="btn-row">
+        <a class="btn" href="games.html">All five titles &amp; write-ups →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 Seth Van Grinsven</div>
+    <div><a href="privacy/">Game privacy policies</a> · <a href="https://github.com/Sethvg">github.com/Sethvg</a></div>
+  </div>
+</footer>
 
 </body>
 </html>
